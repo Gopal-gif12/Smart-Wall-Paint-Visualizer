@@ -7,7 +7,9 @@ import { User, AuthResponse } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private apiUrl = (typeof window !== 'undefined' && window.location.port !== '4200')
+    ? '/api/auth'
+    : 'http://localhost:5000/api/auth';
   private tokenKey = 'paint_viz_token';
   private userKey = 'paint_viz_user';
 

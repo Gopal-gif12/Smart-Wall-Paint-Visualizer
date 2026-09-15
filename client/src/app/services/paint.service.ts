@@ -9,7 +9,9 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PaintService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = (typeof window !== 'undefined' && window.location.port !== '4200')
+    ? '/api'
+    : 'http://localhost:5000/api';
 
   constructor(
     private http: HttpClient,

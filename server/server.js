@@ -53,6 +53,18 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Serve Angular Frontend client in production
+const clientDistPath = path.join(__dirname, '../client/dist/client-app/browser');
+if (require('fs').existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
+
 // Seed default users and data
 async function initializeDefaults() {
   try {
