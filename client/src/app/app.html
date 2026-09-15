@@ -1,0 +1,14 @@
+<div class="app-layout">
+  <app-navbar (openTutorial)="showTutorial = true"></app-navbar>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
+
+  <app-tutorial-modal 
+    *ngIf="showTutorial" 
+    (close)="showTutorial = false"
+  ></app-tutorial-modal>
+</div>
