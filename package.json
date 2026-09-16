@@ -4,15 +4,19 @@
   "description": "Virtual Room Paint & Design Preview Application (MEAN Stack)",
   "scripts": {
     "start": "node server/server.js",
-    "build": "npm --prefix server install && npm --prefix client install && npm --prefix client run build",
+    "build": "npm --prefix client install && npm --prefix client run build",
     "server": "node server/server.js",
     "client": "npm --prefix client start",
     "install:all": "npm --prefix server install && npm --prefix client install"
   },
-  "engines": {
-    "node": ">=22.0.0"
-  },
-  "keywords": ["paint-visualizer", "mean-stack", "angular", "express", "mongodb", "interior-design"],
+  "keywords": [
+    "paint-visualizer",
+    "mean-stack",
+    "angular",
+    "express",
+    "mongodb",
+    "interior-design"
+  ],
   "author": "Smart Wall Paint Visualizer Team",
   "license": "ISC"
 }
